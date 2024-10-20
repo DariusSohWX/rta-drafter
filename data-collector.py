@@ -153,7 +153,7 @@ def fetch_and_collect_ranking_data(n=5):
     else:
         print(f"Failed to retrieve ranking data. Status code: {response.status_code}")
 
-# Example usage: Get data for the top 10 players
-fetch_and_collect_ranking_data(1)
+# Example usage: Get data for the top n players
+fetch_and_collect_ranking_data(100)
 
 # collect_battle_data("176243215", "world_global")
