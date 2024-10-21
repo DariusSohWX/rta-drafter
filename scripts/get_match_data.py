@@ -2,14 +2,17 @@ import requests
 import json
 import csv
 import os
+from pathlib import Path
 
 FIRST_PICK_ORDER = [1, 4, 5, 8, 9]
 SECOND_PICK_ORDER = [2, 3, 6, 7, 10]
 SEASON_CODE = "pvp_rta_ss15"
 
-# Define the CSV file path
-CSV_FILE = "data/epic7_matches.csv"
+# Get the current directory
+current_dir = Path.cwd()
 
+# Define the CSV file path
+CSV_FILE = current_dir.parent / 'data' / 'epic7_matches.csv'
 
 def collect_battle_data(nick_no, world_code, lang="en"):
     """
