@@ -22,7 +22,7 @@ if response.status_code == 200:
     heroes = data.get("en", [])
     
     # Create a list of tuples containing hero codes and their corresponding names
-    hero_data = [(hero["code"], hero["name"]) for hero in heroes]
+    hero_data = [(hero["code"], hero["name"]) for hero in heroes if hero["code"] != "c0001" and hero["code"] != "c1005"]
     
     # Define the CSV file path
     csv_file_path = hero_code_path

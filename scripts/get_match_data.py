@@ -129,10 +129,15 @@ def collect_battle_data(nick_no, world_code, lang="en"):
 
 
 # Function to fetch ranking data and extract nick_no, world_code for the top n players
-def fetch_and_collect_ranking_data(n=5):
+def fetch_and_collect_ranking_data(world_code="all", n=5):
+    params = {
+        "world_code": world_code,
+    }
     
     # API endpoint for ranking data
-    ranking_url = f"https://epic7.gg.onstove.com/gameApi/getWorldUserRankingDetail?lang=en&season_code={SEASON_CODE}&world_code=all"
+    ranking_url = f"https://epic7.gg.onstove.com/gameApi/getWorldUserRankingDetail?lang=en&season_code={SEASON_CODE}&world_code={params['world_code']}"
+    print(ranking_url)
+    
     response = requests.post(ranking_url)
 
     if response.status_code == 200:
@@ -158,6 +163,6 @@ def fetch_and_collect_ranking_data(n=5):
 
 
 if __name__ == "__main__":
-    fetch_and_collect_ranking_data(20)
+    fetch_and_collect_ranking_data(n=20)
 
     # collect_battle_data("176243215", "world_global")
